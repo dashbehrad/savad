@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سواد رسانه‌ای - ساخته شده توسط بهراد میرزایی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* متغیرهای CSS */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* استایل‌های پایه */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* هدر و ناوبری */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-left: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--light-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* بخش هیرو */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero .btn {
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        /* بخش درباره سواد رسانه‌ای */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: scale(1.03);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* بخش مولفه‌های سواد رسانه‌ای */
+        .components {
+            background-color: var(--light-color);
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .component-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .component-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .component-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .component-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        /* بخش گالری */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* بخش اهمیت سواد رسانه‌ای */
+        .importance {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .importance-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .importance-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* بخش فوتر */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* انیمیشن‌ها */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* رسپانسیو */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--secondary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- هدر و ناوبری -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-brain"></i>
+                    سواد رسانه‌ای
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">صفحه اصلی</a></li>
+                    <li><a href="#about">درباره سواد رسانه‌ای</a></li>
+                    <li><a href="#components">مولفه‌ها</a></li>
+                    <li><a href="#gallery">گالری</a></li>
+                    <li><a href="#importance">اهمیت</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- بخش هیرو -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>سواد رسانه‌ای در عصر دیجیتال</h1>
+                <p>توانایی درک، تحلیل، ارزیابی و ایجاد پیام‌های رسانه‌ای در اشکال مختلف</p>
+                <a href="#about" class="btn">بیشتر بدانید</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش درباره سواد رسانه‌ای -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>سواد رسانه‌ای چیست؟</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>سواد رسانه‌ای به مجموعه‌ای از مهارت‌ها و توانایی‌ها اشاره دارد که به افراد امکان می‌دهد پیام‌های رسانه‌ای را به صورت انتقادی تحلیل کرده و محتوای رسانه‌ای معناداری ایجاد کنند. در دنیای امروز که با حجم عظیمی از اطلاعات و پیام‌های رسانه‌ای مواجه هستیم، سواد رسانه‌ای به یک مهارت اساسی تبدیل شده است.</p>
+                    <p>سواد رسانه‌ای تنها به توانایی خواندن و نوشتن محدود نمی‌شود، بلکه شامل درک نحوه کار رسانه‌ها، اهداف پشت تولید محتوا، تکنیک‌های مورد استفاده برای تأثیرگذاری بر مخاطب و تأثیرات اجتماعی، فرهنگی و سیاسی رسانه‌ها است.</p>
+                    <p>افراد دارای سواد رسانه‌ای می‌توانند بین واقعیت و تبلیغات تمایز قائل شوند، اهداف پنهان پیام‌ها را شناسایی کنند و در برابر تأثیرات منفی رسانه‌ها مقاومت کنند.</p>
+                    <a href="#components" class="btn">مولفه‌های سواد رسانه‌ای</a>
+                </div>
+                <div class="about-image">
+                    <img src="savad.png" alt="سواد رسانه‌ای">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش مولفه‌های سواد رسانه‌ای -->
+    <section class="section components" id="components">
+        <div class="container">
+            <div class="section-title">
+                <h2>مولفه‌های اصلی سواد رسانه‌ای</h2>
+            </div>
+            <div class="components-grid">
+                <div class="component-card">
+                    <div class="component-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>تحلیل و ارزیابی</h3>
+                    <p>توانایی تحلیل محتوای رسانه‌ای از نظر دقت، اعتبار، سوگیری و اهداف پنهان</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3>تولید محتوا</h3>
+                    <p>توانایی ایجاد و انتشار محتوای رسانه‌ای مسئولانه، اخلاقی و مؤثر</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>حفاظت از اطلاعات</h3>
+                    <p>آگاهی از مسائل امنیتی و حریم خصوصی در محیط دیجیتال</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>تفکر انتقادی</h3>
+                    <p>توانایی تفکر مستقل و انتقادی درباره پیام‌های رسانه‌ای</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>مشارکت مسئولانه</h3>
+                    <p>مشارکت فعال و مسئولانه در فضای رسانه‌ای و دیجیتال</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>درک زبان رسانه</h3>
+                    <p>درک کدها، قراردادها و تکنیک‌های مورد استفاده در رسانه‌های مختلف</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش گالری -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>گالری تصاویر</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="tahlil.png" alt="سواد رسانه‌ای">
+                    <div class="gallery-overlay">
+                        <h3>تحلیل رسانه</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="tolid.png" alt="تولید محتوا">
+                    <div class="gallery-overlay">
+                        <h3>تولید محتوا</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="tafakor.png" alt="تفکر انتقادی">
+                    <div class="gallery-overlay">
+                        <h3>تفکر انتقادی</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="etelaat.png" alt="امنیت اطلاعات">
+                    <div class="gallery-overlay">
+                        <h3>امنیت اطلاعات</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش اهمیت سواد رسانه‌ای -->
+    <section class="section importance" id="importance">
+        <div class="container">
+            <div class="importance-content">
+                <h2>چرا سواد رسانه‌ای مهم است؟</h2>
+                <p>در عصر دیجیتال، ما روزانه با حجم عظیمی از اطلاعات و پیام‌های رسانه‌ای مواجه هستیم. سواد رسانه‌ای به ما کمک می‌کند تا در این محیط پیچیده، هوشمندانه‌تر عمل کنیم و تصمیمات آگاهانه‌تری بگیریم.</p>
+                <p>سواد رسانه‌ای نه تنها مهارتی برای تحلیل محتوای رسانه‌ای است، بلکه ابزاری برای درک بهتر جهان اطراف ما و مشارکت فعال در جامعه است. این مهارت به ما کمک می‌کند تا در برابر اطلاعات نادرست، تبلیغات فریبنده و تأثیرات منفی رسانه‌ها مقاومت کنیم.</p>
+                <p>با توسعه سواد رسانه‌ای، می‌توانیم شهروندان مسئول‌تری باشیم، روابط سالم‌تری در فضای دیجیتال برقرار کنیم و در نهایت، جامعه‌ای آگاه‌تر و دموکراتیک‌تر بسازیم.</p>
+                <a href="#home" class="btn" style="background: white; color: var(--secondary-color);">شروع کنید</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>درباره ما</h3>
+                    <p>این وب‌سایت به منظور افزایش آگاهی درباره سواد رسانه‌ای و اهمیت آن در عصر دیجیتال ایجاد شده است.</p>
+                    <p>هدف ما ارائه اطلاعات مفید و منابع آموزشی برای توسعه مهارت‌های سواد رسانه‌ای است.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>لینک‌های سریع</h3>
+                    <ul>
+                        <li><a href="#home">صفحه اصلی</a></li>
+                        <li><a href="#about">درباره سواد رسانه‌ای</a></li>
+                        <li><a href="#components">مولفه‌ها</a></li>
+                        <li><a href="#gallery">گالری</a></li>
+                        <li><a href="#importance">اهمیت</a></li>
+                    </ul>
+                </div>
+            <div class="footer-bottom">
+                <p>تمامی حقوق محفوظ است &copy; ۱۴۰۲ - ساخته شده توسط <strong>بهراد میرزایی</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // منوی هامبورگر برای موبایل
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // اسکرول نرم برای لینک‌های داخلی
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // بستن منوی موبایل در صورت باز بودن
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // تغییر استایل ناوبری هنگام اسکرول
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.background = 'var(--secondary-color)';
+                header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--secondary-color), var(--primary-color))';
+                header.style.boxShadow = 'var(--shadow)';
+            }
+        });
+
+        // انیمیشن برای عناصر هنگام اسکرول
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // اعمال انیمیشن به عناصر
+        document.querySelectorAll('.component-card, .about-image, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
